@@ -45,31 +45,35 @@ const bookStore = {
 
 // Write your code here!
 // DOM MANIPULATION!!!!!
-const header = document.getElementById("header");
-header.textContent = "Flatbooks Technical Books";
 
-const booklistUL = document.querySelector('#book-list');
+// changing the 'header' element's text
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = "Flatbooks Technical Books";
 
+const booklist = document.querySelector('#book-list');
+
+// removing example-item template
 const exampleItem = document.querySelector('#delete-this');
 if (exampleItem) {
     exampleItem.remove();
 }
 
+// loop through each object in the array, taking their properties
 bookStore.books.forEach(book => {
-    const li = document.createElement('li');
-    const h3 = document.createElement('h3');
-    const p = document.createElement('p');
-    const img = document.createElement('img');
+    const bookContainer = document.createElement('li');
+    const bookTitle = document.createElement('h3');
+    const bookAuthor = document.createElement('p');
+    const bookImage = document.createElement('img');
 
-    h3.textContent = book.title;
-    p.textContent =  book.author;
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent =  book.author;
 
-    img.src = book.imageUrl;
-    img.alt = book.title;
+    bookImage.src = book.imageUrl;
+    bookImage.alt = book.title;
 
-    li.appendChild(h3);
-    li.appendChild(p);
-    li.appendChild(img);
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
 
-    booklistUL.appendChild(li);
+    booklist.appendChild(bookContainer);
 })
