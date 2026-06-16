@@ -50,6 +50,11 @@ header.textContent = "Flatbooks Technical Books";
 
 const booklistUL = document.querySelector('#book-list');
 
+const exampleItem = document.querySelector('#delete-this');
+if (exampleItem) {
+    exampleItem.remove();
+}
+
 bookStore.books.forEach(book => {
     const li = document.createElement('li');
     const h3 = document.createElement('h3');
