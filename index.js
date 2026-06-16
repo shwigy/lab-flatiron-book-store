@@ -44,4 +44,27 @@ const bookStore = {
 }
 
 // Write your code here!
+// DOM MANIPULATION!!!!!
+const header = document.getElementById("header");
+header.textContent = "Flatbooks Technical Books";
 
+const booklistUL = document.querySelector('#book-list');
+
+bookStore.books.forEach(book => {
+    const li = document.createElement('li');
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
+    const img = document.createElement('img');
+
+    h3.textContent = book.title;
+    p.textContent =  book.author;
+
+    img.src = book.imageUrl;
+    img.alt = book.title;
+
+    li.appendChild(h3);
+    li.appendChild(p);
+    li.appendChild(img);
+
+    booklistUL.appendChild(li);
+})
